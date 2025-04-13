@@ -1,0 +1,32 @@
+{
+	"name": "TR_SCH_COPY_CSV_PIPELINE",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_COPY_CSV_ADLS",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2025-04-14T20:08:00",
+				"timeZone": "India Standard Time",
+				"schedule": {
+					"minutes": [
+						11
+					],
+					"hours": [
+						20
+					]
+				}
+			}
+		}
+	}
+}

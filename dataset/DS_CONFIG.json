@@ -1,0 +1,22 @@
+{
+	"name": "DS_CONFIG",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ONPREM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "query",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "ctl",
+			"table": "config"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

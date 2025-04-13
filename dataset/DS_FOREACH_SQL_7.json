@@ -1,0 +1,28 @@
+{
+	"name": "DS_FOREACH_SQL_7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ONPREM",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@split(dataset().tablename,'.')[0]\n",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@split(dataset().tablename,'.')[1]\n",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

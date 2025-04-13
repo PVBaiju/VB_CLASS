@@ -1,0 +1,64 @@
+{
+	"name": "PL_STOREPROC_READ_VALUE_9",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertCustomer]",
+					"storedProcedureParameters": {
+						"CustomerID": {
+							"value": {
+								"value": "@pipeline().parameters.customerid",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"FirstName": {
+							"value": {
+								"value": "@pipeline().parameters.firstname",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"LastName": {
+							"value": {
+								"value": "@pipeline().parameters.lastname",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_ONPREM",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"customerid": {
+				"type": "string"
+			},
+			"firstname": {
+				"type": "string"
+			},
+			"lastname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-13T06:58:37Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

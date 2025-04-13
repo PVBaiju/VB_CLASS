@@ -1,0 +1,22 @@
+{
+	"name": "LS_SQL_ONPREM",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Connect to Onrem SQl Server",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-ZATNEVE",
+			"database": "AdventureWorks2022",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "study",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4NzM2OWUxZi03MjdjLTQ3YjItODA4NS1jODZhN2I2MzczM2MiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntimeself",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

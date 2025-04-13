@@ -1,0 +1,73 @@
+{
+	"name": "DF_SPLIT_FILE_YEAR_10",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DATAFLOW_SRC_CSV_10",
+						"type": "DatasetReference"
+					},
+					"name": "movies"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_SINK",
+						"type": "DatasetReference"
+					},
+					"name": "moviecleansed"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_SINK",
+						"type": "DatasetReference"
+					},
+					"name": "Moviebyyear"
+				}
+			],
+			"transformations": [
+				{
+					"name": "addcolumnyear"
+				},
+				{
+					"name": "countbyyear"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          movieId as string,",
+				"          title as string,",
+				"          genres as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> movies",
+				"movies derive(year = toInteger(trim(right(title,6),'()')),",
+				"          title = toString(left(title,length(title)-6))) ~> addcolumnyear",
+				"addcolumnyear aggregate(groupBy(year),",
+				"     MoviesperYear = count(title)) ~> countbyyear",
+				"addcolumnyear sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['moviescleansed'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> moviecleansed",
+				"countbyyear sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['moviebyyear'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> Moviebyyear"
+			]
+		}
+	}
+}

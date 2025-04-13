@@ -1,0 +1,13 @@
+{
+	"name": "DS_FOREACH_LKUP_7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ONPREM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

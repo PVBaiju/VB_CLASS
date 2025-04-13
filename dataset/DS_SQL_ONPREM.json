@@ -1,0 +1,17 @@
+{
+	"name": "DS_SQL_ONPREM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ONPREM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "HumanResources",
+			"table": "Employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

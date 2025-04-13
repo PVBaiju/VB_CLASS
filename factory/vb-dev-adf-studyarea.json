@@ -1,0 +1,9 @@
+{
+	"name": "vb-dev-adf-studyarea",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0e3a2868-5b9a-4071-a1b2-241226ef2541",
+		"tenantId": "2b0a9b15-8287-4215-9762-060790db7d2b"
+	}
+}
